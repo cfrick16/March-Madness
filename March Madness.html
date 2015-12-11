@@ -1,0 +1,248 @@
+<html>
+
+
+    <style>
+			h1
+			{
+				text-align: center;
+                color: white;
+			}
+    
+            h3  {  color: white;}
+    
+			
+			IMG.displayed
+			{
+				display:block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			fieldset
+			{
+				max-width: 20%;
+				background-color: white;
+			}
+
+            table.bracket
+            {
+                border-collapse: collapse;
+                border: none;
+            }
+
+            .bracket td
+            {
+                vertical-align: middle;
+                width: 40em;
+                margin: 0;
+                padding: 10px;
+                
+            }
+
+            .bracket td p
+            {
+                border-bottom: solid 1px white;
+                margin: 0;
+                padding: 5px 5px 5px 5px;
+                
+            }
+
+            .bracket th
+            {
+                text-align:center;
+                
+            }
+    
+            .bracket tr
+            {
+                color: white;
+            }
+    
+    
+    
+    
+    
+    
+            table.score
+            {
+                border-collapse: collapse;
+                border: solid 10px white;
+            }
+            .score td
+            {
+                padding: 10px;
+            }
+    
+
+    
+            .score th
+            {
+          
+                width: 5000px;
+                border-bottom: solid 1px white;
+            }
+    
+            .score tr
+            {
+                color: white;
+                text-align: center;
+            }
+            a{color: white;}
+    </style>
+    
+    
+    
+    
+    
+    
+    
+    
+    <head>
+        <title>March Madness </title>
+	</head>
+
+	<body bgcolor = "black">
+		
+		<h3><marquee>Welcome to march madness</marquee></h3>
+		
+			<fieldset>
+				Login<br>
+				Name: <input type = "text" name = "name"><br/>
+				Password: <input type = "text" name = "Password"><br/>
+				<input type = "submit" value ="Submit" onclick = "submit()"/>
+			</fieldset>
+                
+		
+        
+        
+        
+        
+        
+        
+		<h1>BRACKET</h1>
+    <table summary="Tournament Bracket" class="bracket">
+        <tr>
+            <th>National Semi-Finals<br>Saturday November 4th</th>
+            <th>National Semi-Finals<br>Saturday November 8th</th>
+            <th>National Championship<br>Sunday November 9th</th>
+            <th>NCAA National Champion</th>
+            
+        </tr>
+        <tr>
+            <h3><td><p id="p11" onclick="advance(11)"></p></td>
+                <td rowspan="2"><p id="p21" onclick="advance(21)"></p></td>
+                <td rowspan="4"><p id="p31" onclick="advance(31)"></p></td>
+                <td rowspan="8"><p id="p41"></p></td>
+        </tr>
+        <tr>
+            <td><p id="p12" onclick="advance(12)"></p></td>
+        </tr>
+        <tr>
+            <td><p id="p13" onclick="advance(13)"></p></td>
+                <td rowspan="2"><p id="p22" onclick="advance(22)"></p></td>
+        </tr>
+        <tr>
+            <td><p id="p14" onclick="advance(14)"></p></td>
+        </tr>
+
+        <tr>
+            <td><p id="p15" onclick="advance(15)"></p></td>
+            <td rowspan="2"><p id="p23" onclick="advance(23)"></p></td>
+            <td rowspan="4"><p id="p32" onclick="advance(32)"></p></td>
+        </tr>
+        <tr>
+            <td><p id="p16" onclick="advance(16)"></p></td>
+        </tr>
+        <tr>
+            <td><p id="p17" onclick="advance(17)"></p></td>
+            <td rowspan="2"><p id="p24" onclick="advance(24)"></p></td>
+        </tr>
+        <tr>
+            <td><p id="p18" onclick="advance(18)"></p></td>
+        </tr>
+        </h3>
+
+    </table>
+
+
+
+        <h1>SCOREBOARD</h1>
+    <table summary="Scoreboard" class="score">
+        <tr>
+            <th>CORRECT</th>
+            <th>INCORRECT</th>
+            <th>OMMITED</th>
+        </tr>
+        <tr>
+            <td><p id="correct"> </p></td>
+            <td><p id="incorrect"> test2</p></td>
+            <td><p id="omitted"> test3</p></td>
+            
+        </tr>
+        
+    </table>
+
+<a href= "Guessing game.html" target="_blank">link to guessing game</a><br>
+<a href= "Test.html" target="_blank">link to Test</a><br>
+<a href= "Guessing game 2.0.html" target="_blank">link to guessing game 2.0</a>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+        var om = 7;
+                var teams = ["","","","","","","","","","","",
+                             {name:"#1 Manchester United"},
+                             {name:"#8 Chealsea"},
+                             {name:"#4 Liverpool"},
+                             {name:"#5 Arsenal"},
+                             {name:"#2 Manchester City"},
+                             {name:"#7 Southampton"},
+                             {name:"#3 Hull City"},
+                             {name:"#6 Sunderland"}];
+                             
+                             
+                             
+                
+                document.getElementById("correct").innerHTML = 0;
+                document.getElementById("incorrect").innerHTML = 0;
+                document.getElementById("omitted").innerHTML = om;
+       for(var i = 1; i<=teams.length; i++)
+       {
+           document.getElementById("p1"+i).innerHTML = teams["1"+i].name;
+           
+       }
+    
+    
+    
+    function advance(num)
+    {
+        var place = num%10;
+        var round = Math.ceil(num/10);
+        var team =teams[num];
+        place = place/2; place = Math.ceil(place);
+        
+        teams[round+""+place]= team;
+        document.getElementById("p"+round+""+place).innerHTML = teams[round+""+place].name;
+        om--;
+         document.getElementById("omitted").innerHTML = om;
+    }
+    
+    function submit()
+    {
+        document.getElementById("p11").innerHTML="Hey";
+    }
+    </script>
+	</body>
+    
+
+</html>
